@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body {
+            background-color: lavender; /* Light purple background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-container {
+            background-color: white; /* White background for content container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            text-align: center; /* Center-align text */
+            width: 100%;
+            max-width: 400px; /* Maximum width for the content container */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100px;
+            border-radius: 50%; /* Circular profile picture */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <h1>Profile</h1>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>First Name: {{ user.userprofile.first_name }}</p>
+        <p>Last Name: {{ user.userprofile.last_name }}</p>
+        <p>Contact Number: {{ user.userprofile.contact_number }}</p>
+        <p>Bio: {{ user.userprofile.bio }}</p>
+
+        {% if user.userprofile.profile_pic %}
+            <p><img src="{{ user.userprofile.profile_pic.url }}" alt="Profile Picture"></p>
+        {% else %}
+            <p>No profile picture set</p>
+        {% endif %}
+
+        <a href="{% url 'create_post' %}">Create a New Post</a>
+    </div>
+
+</body>
+</html>

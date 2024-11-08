@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background-color: lightblue; /* Light blue background for the entire page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: white; /* White background for the form */
+            padding: 30px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+            width: 100%;
+            max-width: 400px; /* Maximum width for the form */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"],
+        input[type="tel"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background for the submit button */
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green when hovered */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Register</h2>
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="text" name="username" placeholder="Username">
+            <input type="email" name="email" placeholder="Email">
+            <input type="tel" name="contact_number" placeholder="Contact Number">
+            <input type="password" name="password" placeholder="Password">
+            <input type="file" name="profile_pic" accept="image/*" placeholder="Upload Profile Picture">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

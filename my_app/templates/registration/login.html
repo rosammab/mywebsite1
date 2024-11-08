@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #ffcccc; /* Light red color */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+        }
+
+        form {
+            background: white; /* Optional: add a background color to the form */
+            padding: 20px; /* Optional: add some padding */
+            border-radius: 5px; /* Optional: rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: add some shadow */
+        }
+    </style>
+</head>
+<body>
+   <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <label for="username">Username:</label>
+    <input type="text" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required><br>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>

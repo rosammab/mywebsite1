@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+    <style>
+        body {
+            background-color: lightgreen !important; /* Force light green background for the page */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensures the background color fills the entire viewport */
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>
+

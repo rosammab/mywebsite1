@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment</title>
+</head>
+<body>
+    <h1>Comment on Post {{ post_id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="comment_text">Your Comment:</label>
+        <textarea id="comment_text" name="comment_text" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
